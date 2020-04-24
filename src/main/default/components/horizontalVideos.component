@@ -1,5 +1,5 @@
 <apex:component >
-    <div id="demoHorizontalVideos" class="CoveoSearchInterface div__demoHorizontalVideos" data-design="new" data-results-per-page="4"
+    <div id="horizontalVideos" class="CoveoSearchInterface div__horizontalVideos" data-design="new" data-results-per-page="4"
         data-excerpt-length="100" data-enable-history="false" data-expression='@filetype==YouTubeVideo'>
         <div class="CoveoAnalytics"></div>
         <div class="coveo-main-section">
