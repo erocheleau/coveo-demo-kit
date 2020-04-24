@@ -21,6 +21,9 @@
     border-bottom: 1px solid;
     border-color: token(colorBorder);
 }
+.THIS .CoveoSearchInterface.div__verticalGeneralContent .CoveoResult {
+    border-color: token(colorBorder);
+}
 
 /* BUTTONS AND SVG */
 .THIS .coveo-icon-for-quickview-svg {
@@ -28,11 +31,12 @@
 }
 .THIS .Button__SeeMore {
     background-color: token(colorBackgroundButtonBrand);
-    border-color: token(colorBorderButtonBrand);
+    border: 2px solid token(colorBorderButtonBrand);
     color: token(colorTextButtonBrand);
 }
 .THIS .Button__SeeMore:hover,
 .THIS .Button__SeeMore:active {
     background-color: token(colorBackgroundButtonBrandHover);
     color: token(colorTextButtonBrand);
+    border-color: token(colorBackgroundButtonBrandHover);
 }

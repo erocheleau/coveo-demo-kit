@@ -30,7 +30,7 @@
                     type="String"
                     access="global" />
     
-    <ltng:require styles="{!$Resource.demoRecommendations}" />
+    <ltng:require styles="{!$Resource.demoCommunityRecommendations}" />
 
     <div class="{!(v.premade != '' ? v.premade + ' ': 'Card__Container ') + v.outerClass}">
         <article class="slds-card Card__Recommendation--transparent">

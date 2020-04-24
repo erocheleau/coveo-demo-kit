@@ -29,8 +29,8 @@
     padding-left: 0;
 }
 
-.CoveoSearchInterface.div__homeContentRecommendation .CoveoResult {
-    border: 1px solid #ccc;
+.CoveoSearchInterface.div__verticalGeneralContent .CoveoResult {
+    border: 1px solid;
     border-radius: 15px;
     margin: 25px 0;
     box-shadow: 2px 2px 2px #ccc;
@@ -123,7 +123,7 @@
 .CoveoSearchInterface.div__homeAuthActivityRecommendation .CoveoResult,
 .CoveoSearchInterface.div__homeAuthProductRecommendation .CoveoResult,
 .CoveoSearchInterface.div__productBlazeVideoRecommendation .CoveoResult,
-.CoveoSearchInterface.div__homeVideoRecommendation .CoveoResult {
+.CoveoSearchInterface.div__demoHorizontalVideos .CoveoResult {
     border: none;
     background: white;
     border-radius: var(--speedbit-border-radius-rounded-corners);
