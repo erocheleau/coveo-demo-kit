@@ -1,0 +1,29 @@
+<aura:component implements='forceCommunity:availableForAllPageTypes'>
+
+    <!-- PASSTHROUGH ATTRIBUTES TO COVEOV2 -->
+    <aura:attribute name="title"
+                    type="String"
+                    default="Recommended Solutions"
+                    access="global" />
+
+    <aura:attribute name="name"
+                    type="String"
+                    default="demoCaseDeflection"
+                    access="global" />
+
+    <aura:attribute name="searchHub"
+                    type="String"
+                    default="demoCaseDeflection"
+                    access="global" />
+
+    <aura:attribute name="debug"
+                    type="Boolean"
+                    default="false"
+                    access="global" />
+
+    <CoveoV2:CaseDeflection name="{!v.name}"
+                            title="{!v.title}"
+                            searchHub="{!v.searchHub}"
+                            debug="{!v.debug}"
+                            aura:id="coveoCaseDeflection" />
+</aura:component>

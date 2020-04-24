@@ -1,0 +1,5 @@
+<design:component label="Demo Community Search">
+    <design:attribute name="name" label="Name" />
+    <design:attribute name="searchHub" label="Search Hub" />
+    <design:attribute name="debug" label="Debug" />
+</design:component>

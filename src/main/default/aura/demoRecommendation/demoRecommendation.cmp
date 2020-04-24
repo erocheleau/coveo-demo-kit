@@ -1,0 +1,57 @@
+<aura:component implements='forceCommunity:availableForAllPageTypes'>
+
+    <!-- PASSTHROUGH ATTRIBUTES TO COVEOV2 -->
+    <aura:attribute name="name"
+                    type="String"
+                    access="global" />
+
+    <aura:attribute name="premade"
+                    type="String"
+                    access="global" />
+
+    <aura:attribute name="searchHub"
+                    type="String"
+                    access="global" />
+
+    <aura:attribute name="title"
+                    type="String"
+                    access="global" />
+
+    <aura:attribute name="debug"
+                    type="Boolean"
+                    default="false"
+                    access="global" />
+
+    <aura:attribute name="recommendationsContext"
+                    type="String"
+                    access="global" />
+
+    <aura:attribute name="outerClass"
+                    type="String"
+                    access="global" />
+    
+    <ltng:require styles="{!$Resource.demoRecommendations}" />
+
+    <div class="{!(v.premade != '' ? v.premade + ' ': 'Card__Container ') + v.outerClass}">
+        <article class="slds-card Card__Recommendation--transparent">
+            <header class="slds-card__header slds-grid"
+                    style="padding-left:1.2rem;">
+                <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__body">
+                        <h2>
+                            <span class="slds-text-heading_small"
+                                  style="font-size:20px;font-weight:bold">{!v.title}</span>
+                        </h2>
+                    </div>
+                </div>
+            </header>
+            <div class="slds-card__body slds-card__body_inner">
+                <CoveoV2:SearchUI name="{!v.premade != '' ? v.premade : v.name}"
+                                  searchHub="{!v.searchHub}"
+                                  aura:id="coveoRecommendations" />
+
+            </div>
+        </article>
+    </div>
+
+</aura:component>

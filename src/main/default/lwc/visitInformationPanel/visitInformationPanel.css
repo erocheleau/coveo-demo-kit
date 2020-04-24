@@ -1,0 +1,12 @@
+.card__InformationsContainer--fixed,
+.div__OpenButtonContainer--fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.card__InformationsContainer {
+    max-width: 500px;
+    min-width: 400px;
+}

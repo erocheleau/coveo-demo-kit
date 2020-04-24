@@ -1,0 +1,12 @@
+<template>
+    <lightning-card variant="narrow" title="Information on the user" icon-name="standard:contact">
+        <template if:true={data}>
+            <lightning-datatable
+                key-field="id"
+                data={data}
+                columns={columns}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>

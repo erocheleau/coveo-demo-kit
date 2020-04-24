@@ -1,0 +1,970 @@
+<apex:component>
+    <div id="search" class="CoveoSearchInterface" data-enable-history="true">
+        <div class="CoveoFolding" data-tab-not="SalesforceChatter, SalesforceOrders"></div>
+        <div class="CoveoAnalytics"></div>
+        <div class="coveo-tab-section">
+            <a class="CoveoTab" data-id="All" data-caption="All Content"></a>
+            <a class="CoveoTab" data-id="Confluence" data-caption="Confluence" data-expression="@connectortype==Confluence2Crawler AND NOT @documenttype==Space"></a>
+            <a class="CoveoTab" data-id="SharePoint" data-caption="SharePoint" data-expression="@connectortype==SharePoint OR @connectortype==SharepointCrawler"></a>
+            <a class="CoveoTab" data-id="YouTube" data-caption="YouTube" data-expression="@filetype==&quot;youtubevideo&quot;"></a>
+            <a class="CoveoTab" data-id="Salesforce" data-caption="Salesforce" data-expression="@objecttype==(Account, KnowledgeArticleVersion, Case, Contact, FeedItem, ContentDocument, Lead, Opportunity, Report, User) (NOT @sftype==(ContentPost,CollaborationGroupCreated,CreateRecordEvent))"></a>
+            <a class="CoveoTab" data-id="SalesforceArticle" data-caption="Articles" data-expression="(@objecttype==KnowledgeArticleVersion) OR @sfknowledgearticleid"></a>
+        </div>
+        <div class="coveo-search-section">
+            <div class="CoveoCommunityStateManager"></div>
+        </div>
+        <div class="coveo-main-section">
+            <div class="coveo-facet-column">
+                <div class="CoveoDynamicFacet" data-title="Type" data-field="@objecttype" data-tab="All"></div>
+                <div class="CoveoDynamicFacet" data-title="FileType" data-field="@filetype" data-tab="All"></div>
+                <div class="CoveoDynamicFacet" data-title="Author" data-field="@author" data-tab="All"></div>
+                <div class="CoveoDynamicFacet" data-title="Type" data-field="@confdocumenttype" data-tab="Confluence"></div>
+                <div class="CoveoDynamicFacet" data-title="Space" data-field="@confspacename" data-tab="Confluence"></div>
+                <div class="CoveoDynamicFacet" data-title="File Type" data-field="@filetype" data-tab="Confluence"></div>
+                <div class="CoveoDynamicFacet" data-title="Author" data-field="@author" data-tab="Confluence"></div>
+                <div class="CoveoDynamicFacet" data-title="File Type" data-field="@filetype" data-tab="SharePoint"></div>
+                <div class="CoveoDynamicFacet" data-title="Item Type" data-field="@spitemtype" data-tab="SharePoint"></div>
+                <div class="CoveoDynamicFacet" data-title="List Name" data-field="@splistname" data-tab="SharePoint"></div>
+                <div class="CoveoDynamicFacet" data-title="Site" data-field="@spsitename" data-tab="SharePoint"></div>
+                <div class="CoveoDynamicFacet" data-title="Author" data-field="@author" data-tab="SharePoint"></div>
+                <div class="CoveoDynamicFacet" data-title="Author" data-field="@author" data-tab="YouTube"></div>
+                <div class="CoveoDynamicFacet" data-title="Object Type" data-field="@objecttype" data-tab="Salesforce"></div>
+                <div class="CoveoDynamicFacet" data-title="Account Name" data-field="@sfaccountname" data-tab="Salesforce"></div>
+                <div class="CoveoDynamicFacet" data-title="Owner" data-field="@sfownername" data-tab="Salesforce"></div>
+                <div class="CoveoDynamicFacet" data-title="Created By" data-field="@sfcreatedbyname" data-tab="Salesforce"></div>
+                <div class="CoveoDynamicFacet" data-title="Type" data-field="@sftype" data-tab="Salesforce"></div>
+                <div class="CoveoDynamicFacet" data-title="Article Type" data-field="@sfarticletype" data-tab="SalesforceArticle"></div>
+                <div class="CoveoDynamicFacet" data-title="Owner" data-field="@sfownername" data-tab="SalesforceArticle"></div>
+                <div class="CoveoDynamicFacet" data-title="Created By" data-field="@sfcreatedbyname" data-tab="SalesforceArticle"></div>
+                <div class="CoveoDynamicFacetManager" data-enable-reorder="false">
+
+                </div>
+            </div>
+            <div class="coveo-results-column">
+                <div class="CoveoShareQuery"></div>
+                <div class="CoveoPreferencesPanel">
+                    <div class="CoveoResultsPreferences"></div>
+                    <div class="CoveoResultsFiltersPreferences"></div>
+                </div>
+                <div class="CoveoTriggers"></div>
+                <div class="CoveoBreadcrumb"></div>
+                <div class="coveo-results-header">
+                    <div class="coveo-summary-section">
+                        <span class="CoveoQuerySummary"></span>
+                        <span class="CoveoQueryDuration"></span>
+                    </div>
+                    <div class="coveo-result-layout-section">
+                        <span class="CoveoResultLayout"></span>
+                    </div>
+                    <div class="coveo-sort-section">
+                        <span class="CoveoSort" data-sort-criteria="relevancy" data-caption="Relevance"></span>
+                        <span class="CoveoSort" data-sort-criteria="date descending,date ascending" data-caption="Date"></span>
+                    </div>
+                </div>
+                <div class="CoveoHiddenQuery"></div>
+                <div class="CoveoDidYouMean"></div>
+                <div class="CoveoErrorReport" data-pop-up="false"></div>
+                <div class="CoveoResultList" data-wait-animation="fade" data-layout="list" data-auto-select-fields-to-include="true">
+                    <script id="SalesforceOrderListFolding" class="result-template" type="text/html" data-layout="list" data-field-objecttype="Ordered Product">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align:top; padding-left:16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top; font-size:16px;">
+                                        <a class="CoveoResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:16px;">
+                                        <div class="coveo-result-row">
+                                            <div class="CoveoText">Order Total: </div>
+                                            <span class="CoveoFieldValue" data-field="@sfitemtotal" data-helper="currency"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <table class='CoveoFieldTable'>
+                                            <tr data-field="@sforiginalquantity" data-caption="Quantity"></tr>
+                                            <tr data-field="@sfitemtotal" data-caption="Total" style="margin-right:30px; font-weight:bold;" data-helper="currency"></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceQuestionPost" class="result-template" type="text/html" data-field-sftype="QuestionPost">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell">
+                                <span class="CoveoIcon" data-small="true"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfbody" data-html-value="true"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="font-size: 12px;margin-top:8px;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top;">
+                                        <span class="CoveoFieldValue" data-field="@sfcreatedbyname" data-text-caption="From" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sflikecount" data-text-caption="Likes"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoResultFolding" data-result-template-id="SalesforceFeedComment"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceUser" class="result-template" type="text/html" data-field-objecttype="User">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell">
+                                <span class="CoveoIcon" data-small="true"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top; padding-left:16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfaboutme"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell" style="line-height:1.5em;">
+                                        <span class="CoveoFieldValue" data-field="@sfcontactname" data-text-caption="Contact" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfcompanyname" data-text-caption="Company" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfdepartment" data-text-caption="Department" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfdivision" data-text-caption="Division" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sftitle" data-text-caption="Title" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfrole" data-text-caption="Role"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell">
+                                        <table class="CoveoFieldTable" data-minimized-by-default="true" data-minimized-title="Contact information">
+                                            <tr data-caption="Company" data-field="@sfcompanyname"></tr>
+                                            <tr data-caption="Email" data-field="@sfemail"></tr>
+                                            <tr data-caption="Phone" data-field="@sfphone"></tr>
+                                            <tr data-caption="Extension" data-field="@sfextension"></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceReport" class="result-template" type="text/html" data-field-objecttype="Report">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell">
+                                <span class="CoveoIcon" data-small="true"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfdescription"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell" style="line-height:1.5em;">
+                                        <span class="CoveoFieldValue" data-field="@sfcreatedbyname" data-text-caption="Created by" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfownername" data-text-caption="Owner" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sflastrundate" data-text-caption="Last Run" data-helper="date" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfformat" data-text-caption="Format" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sffoldername" data-text-caption="Folder" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceProductList" class="result-template" type="text/html" data-layout="list" data-field-objecttype="Product">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align:middle;">
+                                <div class="CoveoProductMedia" data-media-type="Product Image Thumbnail" data-width="70px" data-height="70px"></div>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align:top; padding-left:16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top; font-size:16px;">
+                                        <a class="CoveoResultLink" data-href-template='/${raw.sfstorefront}/ccrz__ProductDetails?viewState=DetailView&sku=${raw.sfsku}'></a>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px">
+                                    <div class="coveo-result-cell">
+                                        <div class="CoveoFieldValue" data-field="@sfshortdescrt" style="height: 4em; text-overflow: ellipsis; overflow: hidden; font-size: 13px"></div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top: 10px">
+                                    <div class="coveo-result-cell" style="font-size:13px; vertical-align:bottom">
+                                        <span class="CoveoFieldValue" data-field="@sfproducttype" data-text-caption="Product Type" style="margin-right:5em"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfsku" data-text-caption="SKU" style="margin-right:5em"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceProductCard" class="result-template" type="text/html" data-layout="card" data-field-objecttype="Product">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell">
+                                <div class="coveo-result-row">
+                                    <div class="coveo-result-cell" style="padding-bottom:10px; vertical-align:middle; text-align:center;">
+                                        <div class="CoveoProductMedia" data-media-type="Product Image Thumbnail" data-width="100px" data-height="100px"></div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row">
+                                    <div class="coveo-result-cell">
+                                        <div class="coveo-result-row">
+                                            <div class="coveo-result-cell" style="text-align:left;">
+                                                <a class="CoveoResultLink" data-href-template='/${raw.sfstorefront}/ccrz__ProductDetails?viewState=DetailView&sku=${raw.sfsku}'></a>
+                                            </div>
+                                        </div>
+                                        <div class="coveo-result-row">
+                                            <div class="coveo-result-cell" style="padding-top:5px; padding-bottom:5px">
+                                                <div class="CoveoText" data-value="Description" data-weight="bold"></div>
+                                                <div class="CoveoFieldValue" data-field="@sfshortdescrt" style="height: 3.6em; text-overflow: ellipsis; overflow: hidden"></div>
+                                            </div>
+                                        </div>
+                                        <div class="coveo-result-row">
+                                            <div class="coveo-result-cell">
+                                                <div class="CoveoText" data-value="Product Type" data-weight="bold"></div>
+                                                <div class="CoveoFieldValue" data-field="@sfproducttype"></div>
+                                            </div>
+                                            <div class="coveo-result-cell">
+                                                <div class="CoveoText" data-value="SKU" data-weight="bold"></div>
+                                                <div class="CoveoFieldValue" data-field="@sfsku"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceOrderList" class="result-template" type="text/html" data-layout="list" data-field-objecttype="Order">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align:top; text-align:center; width:32px;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false" data-value="coveo-filetype-salesforce-standard-orders"></span>
+                                <div class="CoveoSalesforceQuickview"></div>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top; font-size:16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <table class='CoveoFieldTable' data-minimized-by-default="false">
+                                            <tr data-field="@sforderstatus" data-caption="Status"></tr>
+                                            <tr data-field="@sfshipcomplete" data-caption="Shipped"></tr>
+                                            <tr data-field="@sfshipmethod" data-caption="Shipment method"></tr>
+                                            <tr data-field="@sftotalamount" data-caption="Total Amount" data-helper="currency"></tr>
+                                            <tr data-field="@sfshiptocompanyname" data-caption="Account"></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell" style="font-size:13px;">
+                                        <span class="CoveoResultFolding" data-result-template-id="SalesforceOrderListFolding" data-more-caption="Show order items" data-less-caption="Show only matching items"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="CoveoMissingTerms"></div>
+                        </div>
+                    </script>
+                    <script id="SalesforceOrderCard" class="result-template" type="text/html" data-layout="card" data-field-objecttype="Order">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell">
+                                <div class="coveo-result-row">
+                                    <div class="coveo-result-cell">
+                                        <div class="coveo-result-row">
+                                            <div class="coveo-result-cell" style="text-align:left;">
+                                                <span class="CoveoIcon" data-small="true" data-with-label="false" data-value="coveo-filetype-salesforce-standard-orders"></span>
+                                                <a class="CoveoSalesforceResultLink"></a>
+                                            </div>
+                                            <div class="coveo-result-cell" style="text-align:right">
+                                                <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                            </div>
+                                        </div>
+                                        <div class="coveo-result-row" style="padding-top: 3px;">
+                                            <div class="coveo-result-cell" style="padding-top:5px; padding-bottom:5px">
+                                                <div class="CoveoText" data-value="Status" data-weight="bold"></div>
+                                                <div class="CoveoFieldValue" data-field="@sforderstatus"></div>
+                                            </div>
+                                        </div>
+                                        <div class="coveo-result-row" style="padding-top: 3px;">
+                                            <div class="coveo-result-cell">
+                                                <div class="CoveoText" data-value="Shipment Method" data-weight="bold"></div>
+                                                <div class="CoveoFieldValue" data-field="@sfshipmethod"></div>
+                                            </div>
+                                            <div class="coveo-result-cell">
+                                                <div class="CoveoText" data-value="Shipped" data-weight="bold"></div>
+                                                <div class="CoveoFieldValue" data-field="@sfshipcomplete"></div>
+                                            </div>
+                                        </div>
+                                        <div class="coveo-result-row" style="padding-top: 3px;">
+                                            <div class="coveo-result-cell">
+                                                <div class="CoveoText" data-value="Account" data-weight="bold"></div>
+                                                <div class="CoveoFieldValue" data-field="@sfshiptocompanyname"></div>
+                                            </div>
+                                            <div class="coveo-result-cell">
+                                                <div class="CoveoText" data-value="Total Amount" data-weight="bold"></div>
+                                                <div class="CoveoFieldValue" data-field="@sftotalamount" data-helper="currency"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceOpportunity" class="result-template" type="text/html" data-field-objecttype="Opportunity">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell">
+                                <span class="CoveoIcon" data-small="true"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfdescription"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell" style="line-height:1.5em;">
+                                        <span class="CoveoFieldValue" data-field="@sfownername" data-text-caption="Owner" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfaccountname" data-text-caption="Account" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfamount" data-text-caption="Amount" style="margin-right:30px;" data-helper="currency"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfexpectedRevenue" data-text-caption="Expected revenue" style="margin-right:30px;"
+                                            data-helper="currency"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfleadsource" data-text-caption="Lead source" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sftype" data-text-caption="Type"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceLead" class="result-template" type="text/html" data-field-objecttype="Lead">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell">
+                                <span class="CoveoIcon" data-small="true"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left:16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfdescription"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell" style="line-height:1.5em;">
+                                        <span class="CoveoFieldValue" data-field="@sfcompany" data-text-caption="Company" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfdivision" data-text-caption="Division" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfindustry" data-text-caption="Industry" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfleadsource" data-text-caption="Lead source" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfstatus" data-text-caption="Lead status" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfannualrevenue" data-text-caption="Annual revenue" style="margin-right:30px;"
+                                            data-helper="currency"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceKnowledgeArticle" class="result-template" type="text/html" data-field-sfknowledgearticleid="">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell">
+                                <span class="CoveoIcon" data-small="true"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfsummary"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell" style="line-height:1.5em;">
+                                        <span class="CoveoFieldValue" data-field="@sfownername" data-text-caption="Owner" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfarticletype" data-text-caption="Type" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfarticlenumber" data-text-caption="Article number"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell">
+                                        <table class="CoveoFieldTable" data-minimized-by-default="true">
+                                            <tr data-caption="Created" data-field="@sfcreatedbyname"></tr>
+                                            <tr data-caption="Language" data-field="@sflanguage"></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceDocument" class="result-template" type="text/html" data-field-objecttype="ContentDocument">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell" style="vertical-align:top; width:120px; text-align:left">
+                                <span class="CoveoSalesforceThumbnail"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top; padding-left:16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfdescription"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell" style="line-height:1.5em;">
+                                        <span class="CoveoFieldValue" data-field="@sfownername" data-text-caption="Owner" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sffiletype" data-text-caption="Type" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sflanguage" data-text-caption="Language" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfparentname" data-text-caption="Parent"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell">
+                                        <table class="CoveoFieldTable" data-minimized-by-default="true">
+                                            <tbody>
+                                                <tr data-caption="Created by" data-field="@sfcreatedbyname"></tr>
+                                                <tr data-caption="Last modified by" data-field="@sfcontentmodifiedbyname"></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceContact" class="result-template" type="text/html" data-field-objecttype="Contact">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell">
+                                <span class="CoveoIcon" data-small="true"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left:16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfdescription"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell" style="line-height:1.5em;">
+                                        <span class="CoveoFieldValue" data-field="@sfaccountname" data-text-caption="Account name" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfphone" data-text-caption="Phone" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfemail" data-text-caption="Email" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceChatter" class="result-template" type="text/html" data-field-objecttype="FeedItem,FeedComment">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell">
+                                <span class="CoveoChatterThumbnail"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top; padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="dateTime" data-helper-options-always-include-time="true"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfbody" style="white-space:pre-wrap" data-html-value="true"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 12px;">
+                                        <span class="CoveoFieldValue" data-field="@sfcreatedbyname" data-text-caption="From" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sflikecount" data-text-caption="Likes"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoResultFolding" data-result-template-id="SalesforceFeedComment"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceCase" class="result-template" type="text/html" data-field-objecttype="Case">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell">
+                                <span class="CoveoIcon" data-small="true"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left:16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink" data-title-template="${title} #${raw.sfcasenumber}"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfdescription"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell" style="line-height:1.5em;">
+                                        <span class="CoveoFieldValue" data-field="@sfpriority" data-text-caption="Priority" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfownername" data-text-caption="Owner" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfstatus" data-text-caption="Status" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell">
+                                        <table class="CoveoFieldTable" data-minimized-by-default="true">
+                                            <tbody>
+                                                <tr data-caption="Origin" data-field="@sforigin"></tr>
+                                                <tr data-caption="Account" data-field="@sfaccountname"></tr>
+                                                <tr data-caption="Reason" data-field="@sfreason"></tr>
+                                                <tr data-caption="Contact" data-field="@sfcontactname"></tr>
+                                                <tr data-caption="Created" data-field="@sfcreateddate" data-helper="dateTime"></tr>
+                                                <tr data-caption="Closed" data-field="@sfcloseddate" data-helper="dateTime"></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceAccount" class="result-template" type="text/html" data-field-objecttype="Account">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell">
+                                <span class="CoveoIcon" data-small="true"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top; padding-left:16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfdescription"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell" style="line-height:1.5em;">
+                                        <span class="CoveoFieldValue" data-field="@sfaccountnumber" data-text-caption="Account #" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfannualrevenue" data-text-caption="Annual revenue" data-helper="currency" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sflocation" data-text-caption="Location" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell">
+                                        <table class="CoveoFieldTable" data-minimized-by-default="true">
+                                            <tr data-caption="Owner" data-field="@sfownername"></tr>
+                                            <tr data-caption="Ownership" data-field="@sfownership"></tr>
+                                            <tr data-caption="Industry" data-field="@sfindustry"></tr>
+                                            <tr data-caption="Contact" data-field="@sfcontactname"></tr>
+                                            <tr data-caption="Location" data-field="@sflocation"></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SalesforceFeedComment" class="result-template" type="text/html" data-field-objecttype="FeedComment">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align: top;width: 46px;">
+                                <span class="CoveoIcon" data-small="true"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left:16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align: top; font-size: 14px;">
+                                        <span class="CoveoFieldValue" data-field="@sfcommentbody" data-html-value="true"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 12px;">
+                                        <span class="CoveoFieldValue" data-field="@sfcreatedbyname" data-text-caption="From" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SharePointList" class="result-template" type="text/html" data-layout="list" data-field-spitemtype="List">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align: top;text-align:center;width:32px;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false"></span>
+                                <div class="CoveoSalesforceQuickview"></div>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:80px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@author" data-text-caption="Author" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@filetype" data-text-caption="File" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@language" data-text-caption="Language" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@size" data-text-caption="Size" data-helper="size" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <div class="CoveoPrintableUri"></div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row">
+                                    <div class="coveo-result-cell">
+                                        <div class="CoveoMissingTerms"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="Salesforce" class="result-template" type="text/html" data-field-sfid="">
+                        <div class="coveo-result-frame" style="padding:0 16px 16px 0;">
+                            <div class="coveo-result-cell">
+                                <span class="CoveoIcon" data-small="true"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align: top; font-size: 16px;">
+                                        <a class="CoveoSalesforceResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@sflastmodifieddate" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfdescription"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:8px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@sfcreatedbyname" data-text-caption="Created by" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfownername" data-text-caption="Owner" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sfaccountname" data-text-caption="Account" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@sftype" data-text-caption="Type"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="Confluence" class="result-template" type="text/html" data-layout="list" data-field-connectortype="Confluence2Crawler">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align: top;text-align:center;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false"></span>
+                                <div class="CoveoSalesforceQuickview"></div>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@confspacename" data-text-caption="Space" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@documenttype" data-text-caption="Type" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@author" data-text-caption="Author" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@language" data-text-caption="Language" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <div class="CoveoResultFolding" data-result-template-id="Confluence"></div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell" style="font-size:13px;">
+                                        <span class="CoveoResultAttachments" data-result-template-id="ConfluenceAttachment"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <div class="CoveoPrintableUri"></div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row">
+                                    <div class="coveo-result-cell">
+                                        <div class="CoveoMissingTerms"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="SharePoint" class="result-template" type="text/html" data-layout="list" data-field-spitemtype="">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align: top;text-align:center;width:32px;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false"></span>
+                                <div class="CoveoSalesforceQuickview"></div>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@author" data-text-caption="Author" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@filetype" data-text-caption="File" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@language" data-text-caption="Language" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@size" data-text-caption="Size" data-helper="size" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <div class="CoveoPrintableUri"></div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row">
+                                    <div class="coveo-result-cell">
+                                        <div class="CoveoMissingTerms"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="YouTubePlaylist" class="result-template" type="text/html" data-layout="list" data-field-filetype="YouTubePlaylist">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:32px;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false"></span>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell coveo-no-wrap" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@filetype" data-text-caption="Type" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@author" data-text-caption="Author" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@ytitemcount" data-text-caption="NumberOfVideos" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:12px;">
+                                    <div class="coveo-result-cell" style="padding-top:5px; padding-bottom:5px; font-size:13px;">
+                                        <span class="CoveoResultFolding" data-result-template-id="YouTubeVideo"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row">
+                                    <div class="coveo-result-cell">
+                                        <div class="CoveoMissingTerms"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="YouTubeVideo" class="result-template" type="text/html" data-layout="list" data-field-filetype="YouTubeVideo">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-row">
+                                <div class="coveo-result-cell" style="width:220px; padding-top:7px">
+                                    <span class="CoveoYouTubeThumbnail">
+                                    </span>
+                                </div>
+                                <div class="coveo-result-cell">
+                                    <div class="coveo-result-row">
+                                        <div class="coveo-result-cell" style="font-size:16px">
+                                            <a class="CoveoResultLink">
+                                            </a>
+                                        </div>
+                                        <div class="coveo-result-cell" style="text-align:right; width:120px;font-size:12px">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="dateTime">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="coveo-result-row" style="margin-top:10px;">
+                                        <div class="coveo-result-cell">
+                                            <span class="CoveoExcerpt"></span>
+                                        </div>
+                                    </div>
+                                    <div class="coveo-result-row" style="margin-top:10px;">
+                                        <div class="coveo-result-cell">
+                                            <span class="CoveoFieldValue" data-field="@author" data-text-caption="Author" style="margin-right:30px;"></span>
+                                            <span class="CoveoFieldValue" data-field="@ytvideoduration" data-helper="timeSpan" data-helper-options-is-milliseconds="false" data-text-caption="Length" style="margin-right:30px;"></span>
+                                            <span class="CoveoFieldValue" data-field="@ytviewcount" data-text-caption="Views" style="margin-right:30px;"></span>
+                                            <span class="CoveoFieldValue" data-field="@language" data-text-caption="Language" style="margin-right:30px;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="coveo-result-row">
+                                        <div class="coveo-result-cell">
+                                            <div class="CoveoMissingTerms"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="Default" class="result-template" type="text/html" data-layout="list">
+                        <div class="coveo-result-frame">
+                            <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:32px;">
+                                <span class="CoveoIcon" data-small="true" data-with-label="false"></span>
+                                <div class="CoveoSalesforceQuickview"></div>
+                            </div>
+                            <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
+                                <div class="coveo-result-row" style="margin-top:0;">
+                                    <div class="coveo-result-cell" style="vertical-align:top;font-size:16px;">
+                                        <a class="CoveoResultLink"></a>
+                                    </div>
+                                    <div class="coveo-result-cell" style="width:120px;text-align:right;font-size:12px">
+                                        <div class="coveo-result-row">
+                                            <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoExcerpt"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <span class="CoveoFieldValue" data-field="@author" data-text-caption="Author" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@source" data-text-caption="Source" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@language" data-text-caption="Language" style="margin-right:30px;"></span>
+                                        <span class="CoveoFieldValue" data-field="@filetype" data-text-caption="File Type" style="margin-right:30px;"></span>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row" style="margin-top:10px;">
+                                    <div class="coveo-result-cell">
+                                        <div class="CoveoPrintableUri"></div>
+                                    </div>
+                                </div>
+                                <div class="coveo-result-row">
+                                    <div class="coveo-result-cell">
+                                        <div class="CoveoMissingTerms"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                </div>
+                <div class="CoveoPager"></div>
+                <div class="CoveoLogo"></div>
+                <div class="CoveoResultsPerPage"></div>
+            </div>
+        </div>
+    </div>
+</apex:component>

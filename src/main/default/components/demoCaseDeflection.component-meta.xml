@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>32.0</apiVersion>
+    <label>demoCaseDeflection</label>
+    <packageVersions>
+        <majorNumber>3</majorNumber>
+        <minorNumber>46</minorNumber>
+        <namespace>CoveoV2</namespace>
+    </packageVersions>
+</ApexComponent>

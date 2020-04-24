@@ -1,0 +1,38 @@
+/* TEXT */
+.THIS .CoveoSearchInterface {
+    color: token(colorTextDefault);
+    font-family: token(fontFamily);
+}
+.THIS .CoveoFieldValue .coveo-field-caption {
+    color: token(colorTextLabel);
+}
+.THIS .CoveoResultLink,
+.THIS a.CoveoResultLink,
+.THIS .CoveoResult a.CoveoResultLink{
+    color: token(colorTextLink);
+}
+
+/* BORDERS */
+.THIS .coveo-list-layout.CoveoResult {
+    border-color: token(colorBorder);
+}
+.THIS .coveo-results-header {
+    box-shadow: none;
+    border-bottom: 1px solid;
+    border-color: token(colorBorder);
+}
+
+/* BUTTONS AND SVG */
+.THIS .coveo-icon-for-quickview-svg {
+    color: token(colorTextBrand);
+}
+.THIS .Button__SeeMore {
+    background-color: token(colorBackgroundButtonBrand);
+    border-color: token(colorBorderButtonBrand);
+    color: token(colorTextButtonBrand);
+}
+.THIS .Button__SeeMore:hover,
+.THIS .Button__SeeMore:active {
+    background-color: token(colorBackgroundButtonBrandHover);
+    color: token(colorTextButtonBrand);
+}

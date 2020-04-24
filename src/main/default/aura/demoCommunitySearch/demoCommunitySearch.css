@@ -1,0 +1,144 @@
+/* TEXT */
+.THIS .CoveoSearchInterface {
+    color: token(colorTextDefault);
+    font-family: token(fontFamily);
+}
+.THIS .CoveoTab p {
+    color: token(colorTextLabel);
+}
+.THIS .CoveoTab:hover p,
+.THIS .CoveoTab.coveo-selected p,
+.THIS .coveo-dynamic-facet-header-title {
+    color: token(colorTextBrand);
+}
+.THIS .CoveoQuerySummary,
+.THIS .CoveoQueryDuration,
+.THIS .CoveoFieldValue .coveo-field-caption,
+.THIS .coveo-dynamic-facet-value .coveo-checkbox-span-label-suffix {
+    color: token(colorTextLabel);
+}
+.THIS .coveo-checkbox-label,
+.THIS .coveo-dynamic-facet-header-btn,
+.THIS .coveo-facet-slider-breadcrumb-title,
+.THIS .coveo-dynamic-facet-breadcrumb-title {
+    color: token(colorTextDefault);
+}
+.THIS .CoveoResultLink,
+.THIS a.CoveoResultLink,
+.THIS .coveo-breadcrumb-clear-all,
+.THIS .CoveoResult a.CoveoResultLink,
+.THIS .CoveoFieldValue .coveo-clickable,
+.THIS .coveo-dynamic-facet-breadcrumb-value, 
+.THIS .coveo-dynamic-facet-breadcrumb-collapse,
+.THIS .coveo-facet-breadcrumb-value.coveo-selected *, 
+.THIS .coveo-facet-slider-breadcrumb-value.coveo-selected * {
+    color: token(colorTextLink);
+} 
+.THIS .coveo-facet-header-title{
+    color: token(colorTextButtonBrand);
+}
+.THIS .coveo-results-per-page-list-item a,
+.THIS .coveo-pager-list-item a.coveo-pager-list-item-text {
+    color: token(colorTextButtonBrand);
+}
+
+/* BORDERS */
+.THIS .CoveoSort,
+.THIS .CoveoBreadcrumb,
+.THIS .coveo-tab-section,
+.THIS .coveo-dynamic-facet-header,
+.THIS .coveo-list-layout.CoveoResult {
+    border-color: token(colorBorder);
+}
+.THIS .coveo-results-header {
+    box-shadow: none;
+    border-bottom: 1px solid;
+    border-color: token(colorBorder);
+}
+.THIS .CoveoTab:hover {
+    border-bottom: 2px solid token(colorBorderBrand);
+}
+.THIS .CoveoSort.coveo-selected,
+.THIS .CoveoSort.coveo-selected:hover,
+.THIS .CoveoTab.coveo-selected,
+.THIS .CoveoTab.coveo-selected:hover {
+    border-color: token(colorBorderBrand);
+}
+.THIS .CoveoFacet,
+.THIS .CoveoFacetRange,
+.THIS .CoveoFacetSlider,
+.THIS .CoveoHierarchicalFacet,
+.THIS .CoveoCategoryFacet,
+.THIS .CoveoTimespanFacet {
+    border-color: token(colorBorder);
+    border-radius: token(borderRadiusMedium);
+}
+
+/* BACKGROUNDS */
+.THIS .coveo-tab-section {
+    background-color: transparent;
+}
+.THIS .coveo-facet-header {
+    background-color: token(colorBackgroundButtonBrand);
+}
+.THIS .coveo-facet-more, 
+.THIS .coveo-facet-less,
+.THIS .coveo-facet-search-current-result,
+.THIS .coveo-facet-value.coveo-with-hover:hover, 
+.THIS .coveo-facet-value.coveo-with-hover.coveo-focused {
+    background-color: token(colorBackgroundShade);
+}
+.THIS .coveo-facet-more:hover,
+.THIS .coveo-facet-less:hover {
+    background-color: token(colorBackgroundRowSelected);
+}
+
+/* BUTTONS AND SVG */
+.THIS .coveo-facet-value.coveo-facet-search-button,
+.THIS .coveo-field-table-toggle {
+    color: token(colorTextLink);
+}
+.THIS .coveo-dynamic-facet-collapse-toggle-svg,
+.THIS .coveo-facet-search-magnifier-svg,
+.THIS .coveo-facet-value-checkbox svg,
+.THIS .coveo-field-table-toggle-up-svg,
+.THIS .coveo-pager-next-icon-svg, 
+.THIS .coveo-pager-previous-icon-svg,
+.THIS .coveo-field-table-toggle-down-svg,
+.THIS .coveo-icon-for-quickview-svg,
+.THIS .coveo-facet-more-icon-svg, 
+.THIS .coveo-facet-less-icon-svg,
+.THIS .coveo-sort-icon-descending-svg,
+.THIS .CoveoV2InterfaceEditor .slds-button_icon {
+    color: token(colorTextBrand);
+}
+.THIS .coveo-facet-settings-more-svg,
+.THIS .coveo-facet-header-title {
+    color: token(colorTextButtonBrand);
+}
+.THIS input[type='checkbox'].coveo-checkbox:checked + button:before {
+    border-color: token(colorBorderBrand);
+}
+.THIS .coveo-pager-list-item:not(.coveo-pager-next),
+.THIS .coveo-results-per-page-list-item {
+    background-color: token(colorBackgroundButtonBrand);
+}
+.THIS .coveo-pager-list-item:hover:not(.coveo-pager-next),
+.THIS .coveo-pager-list-item.coveo-active:not(.coveo-pager-next),
+.THIS .coveo-results-per-page-list-item:hover,
+.THIS .coveo-results-per-page-list-item.coveo-active {
+    background-color: token(colorBackgroundButtonBrandHover);
+}
+
+
+/* Fix for the facet icons misaligned? */
+.THIS .coveo-facet-value.coveo-facet-search-button .coveo-facet-value-checkbox svg,
+.THIS .coveo-facet-value.coveo-with-hover:hover:not(.coveo-facet-search-button):not(.coveo-excluded):not(.coveo-facet-value-will-exclude):not(.coveo-has-childs-selected) .coveo-facet-value-checkbox svg {
+    bottom: 4px;
+}
+.THIS .coveo-facet-search-selectable.coveo-facet-value.coveo-with-hover:hover:not(.coveo-facet-search-button):not(.coveo-excluded):not(.coveo-facet-value-will-exclude):not(.coveo-has-childs-selected) .coveo-facet-value-checkbox svg {
+    bottom: 6px;
+}
+.THIS .coveo-facet-search-magnifier-svg {
+    margin-top: 0;
+}

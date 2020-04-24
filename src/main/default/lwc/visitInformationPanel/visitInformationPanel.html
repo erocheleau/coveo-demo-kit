@@ -1,0 +1,35 @@
+<template>
+    <template if:true={isOpen}>
+        <lightning-card variant="narrow" title="Coveo Visit Inspector" icon-name="custom:custom102" class="card__InformationsContainer card__InformationsContainer--fixed">
+
+            <lightning-button-icon icon-name="utility:clear" alternative-text="End Visit" slot="actions" onclick={resetVisit}></lightning-button-icon>
+            <lightning-button-icon icon-name="utility:hide" alternative-text="Hide" slot="actions" onclick={hidePanel}></lightning-button-icon>
+
+            <lightning-accordion active-section-name="visitHistorySection">
+                <lightning-accordion-section name="browserDetails" label="Visit Data">
+                    <c-browser-infos></c-browser-infos>
+                </lightning-accordion-section>
+                <lightning-accordion-section name="visitHistorySection" label="Coveo Session History">
+                    <c-visit-history></c-visit-history>
+                </lightning-accordion-section>
+                <lightning-accordion-section name="topicsInfos" label="Topics Clustering">
+                    <c-topic-infos topics={topics}></c-topic-infos>
+                </lightning-accordion-section>
+                <lightning-accordion-section name="userInfos" label="CRM Profile">
+                    <c-user-infos></c-user-infos>
+                </lightning-accordion-section>
+            </lightning-accordion>
+        </lightning-card>
+    </template>
+    <template if:false={isOpen}>
+        <div class="div__OpenButtonContainer div__OpenButtonContainer--fixed">
+            <lightning-button-icon
+                icon-name="utility:metrics"
+                variant="bare"
+                size="large"
+                alternative-text="Show information panel"
+                onclick={showPanel}>
+            </lightning-button-icon>
+        </div>
+    </template>
+</template>

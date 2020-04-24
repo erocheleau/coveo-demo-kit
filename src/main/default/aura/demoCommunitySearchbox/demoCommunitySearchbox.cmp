@@ -1,0 +1,44 @@
+<aura:component implements="forceCommunity:searchInterface">
+
+    <!-- PASSTHROUGH ATTRIBUTES TO COVEOV2 -->
+    <aura:attribute name="name"
+                    type="String"
+                    default="demoCommunitySearch"
+                    access="global" />
+
+    <aura:attribute name="searchHub"
+                    type="String"
+                    default="demoCommunitySearch"
+                    access="global" />
+
+    <aura:attribute name="debug"
+                    type="Boolean"
+                    default="false"
+                    access="global" />
+                    
+    <aura:attribute name="enableQuerySyntax"
+                    type="Boolean"
+                    default="true"
+                    access="global" />
+
+    <aura:attribute name="roundedCorners"
+                    type="Boolean"
+                    default="false"
+                    access="global" />
+
+    <!-- Handler for navigation event. -->
+    <!-- <aura:handler event="forceCommunity:routeChange" action="{!c.handleRouteChange}" /> -->
+
+    <!-- Wrapper for LWC pubsub. -->
+    <!-- <c:auraPubsub aura:id="pubsub" /> -->
+
+    <!-- CoveoV2 Community searchbox. -->
+    <div class="{! v.roundedCorners? 'rounded-corners': ''}">
+        <CoveoV2:CommunitySearchBox name="{!v.name}"
+                                    searchHub="{!v.searchHub}"
+                                    enableQuerySyntax="{!v.enableQuerySyntax}"
+                                    debug="{!v.debug}">
+        </CoveoV2:CommunitySearchBox>
+    </div>
+
+</aura:component>

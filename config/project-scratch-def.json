@@ -1,0 +1,34 @@
+{
+  "orgName": "DemoComponents",
+  "edition": "Developer",
+  "features": [
+      "Communities",
+      "ServiceCloud",
+      "DebugApex",
+      "Knowledge",
+      "LightningServiceConsole",
+      "LiveAgent",
+      "Chatbot"
+  ],
+  "settings": {
+      "knowledgeSettings": {
+          "enableKnowledge": true,
+          "showArticleSummariesCustomerPortal": true
+      },
+      "liveAgentSettings": {
+          "enableLiveAgent": true
+      },
+      "omniChannelSettings": {
+          "enableOmniChannel": true
+      },
+      "communitiesSettings": {
+          "enableNetworksEnabled": true
+      },
+      "lightningExperienceSettings": {
+          "enableS1DesktopEnabled": true
+      },
+      "mobileSettings": {
+          "enableS1EncryptedStoragePref2": false
+      }
+  }
+}

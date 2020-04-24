@@ -1,0 +1,12 @@
+<template>
+    <lightning-card variant="narrow" title="Topics of interest to the user" icon-name="custom:custom102">
+        <template if:true={data}>
+            <lightning-datatable
+                key-field="id"
+                data={data}
+                columns={columns}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>

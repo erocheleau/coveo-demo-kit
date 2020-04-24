@@ -1,0 +1,7 @@
+<design:component label="Demo Community Searchbox">
+    <design:attribute name='name' label='Name' required='true' description='The name of the Coveo Search component you wish to associate to your searchbox.' />
+    <design:attribute name='searchHub' label='Search Hub' description='The name of the search hub that is used for Analytics reports.' />
+    <design:attribute name='enableQuerySyntax' label='Enable Query Syntax' description='Specifies whether the Coveo Platform should try to interpret special query syntax such as field references in the query that the user enters in the search box' />
+    <design:attribute name='roundedCorners' label='Rounder Corners' description='Display the searchbox with rounded corners.' />
+    <design:attribute name='debug' label='Debug' description='Whether the interface should load the non-minified versions of the different resources.' />
+</design:component>

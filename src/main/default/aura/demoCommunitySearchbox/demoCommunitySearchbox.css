@@ -1,0 +1,70 @@
+/* FIX FOR INLINE SEARCHBOX SUGGESTIONS */
+.THIS div.CoveoStandaloneSearchbox.magic-box.magic-box-inline .magic-box-suggestions.magic-box-hasSuggestion {
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    right: -1px;
+    background: #fff;
+    z-index: 1;
+    display: block;
+    border: thin solid #bcc3ca;
+}
+
+/* TEXT */
+.THIS .CoveoSearchInterface {
+    color: token(colorTextDefault);
+    font-family: token(fontFamily);
+}
+.THIS .CoveoV2CommunitySearchBox .magic-box-input>input {
+    font-family: token(fontFamily);
+}
+.THIS .CoveoV2CommunitySearchBox .magic-box .magic-box-clear .magic-box-icon .magic-box-clear-svg {
+    color: token(colorTextBrand);
+}
+.THIS .CoveoOmnibox.magic-box .coveo-omnibox-hightlight,
+.THIS .CoveoV2CommunitySearchBox .magic-box-input>input,
+.THIS .magic-box .magic-box-suggestions .magic-box-suggestion {
+    color: token(colorTextDefault);
+}
+
+/* SVG COLORS */
+.THIS .coveo-search-button-svg {
+    color: token(colorTextBrand);
+}
+
+/* BORDERS */
+.THIS .CoveoV2CommunitySearchBox .CoveoSearchButton {
+    border-color: token(colorBorder);
+}
+.THIS div.CoveoStandaloneSearchbox.magic-box.magic-box-inline .magic-box-suggestions.magic-box-hasSuggestion {
+    border-color: token(colorBorder);
+}
+
+/* SEARCHBOX INPUT */
+.THIS .CoveoOmnibox.magic-box .coveo-omnibox-selectable.coveo-omnibox-selected,
+.THIS .magic-box .magic-box-suggestions .magic-box-suggestion:hover {
+    background-color: token(colorBackgroundShade);
+}
+
+/* ROUNDED SEARCHBOX */
+.THIS.rounded-corners .magic-box-input {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.THIS.rounded-corners .CoveoV2CommunitySearchBox .CoveoSearchButton {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.THIS.rounded-corners .CoveoV2CommunitySearchBox .magic-box {
+    border: none;
+}
+.THIS.rounded-corners .magic-box-suggestions {
+    margin-top: 6px;
+    border-radius: 0.25em;
+}
+.THIS.rounded-corners .magic-box .magic-box-suggestions .magic-box-suggestion {
+    margin: 0 2px;
+}
+.THIS.rounded-corners .magic-box.magic-box-inline .magic-box-suggestions.magic-box-hasSuggestion .coveo-magicbox-suggestions {
+    border-top: none;
+}

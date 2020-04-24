@@ -1,0 +1,233 @@
+:root {
+    --speedbit-red: #eb193a;
+    --speedbit-grey: #e0e1ee;
+    --speedbit-dark-blue: #2b338b;
+    --speedbit-light-blue: #dff6ff;
+    --speedbit-border-radius-rounded-corners: 18px;
+}
+
+.Card__Recommendation--transparent {
+    border: none;
+    background: none;
+}
+
+.Tab__headerDivider {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    height: 20px;
+    position: relative;
+    top: 16px;
+}
+
+.Card__Container {
+    padding-top: 20px;
+}
+
+/* **********Home page************* */
+/* General content */
+.CoveoSearchInterface .coveo-main-section .coveo-results-column {
+    padding-left: 0;
+}
+
+.CoveoSearchInterface.div__homeContentRecommendation .CoveoResult {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin: 25px 0;
+    box-shadow: 2px 2px 2px #ccc;
+    padding: 10px;
+    background: white;
+}
+
+/* TOP BAR RECOMMENDATIONS */
+.Card__homeTopBarRecommendations,
+.Card__topBarRecommendations {
+    background-color: var(--speedbit-grey);
+}
+
+.Card__homeTopBarRecommendations .forcePlaceholder .placeholder,
+.Card__topBarRecommendations .forcePlaceholder .placeholder {
+    display: flex;
+}
+
+.Card__homeTopBarRecommendations article,
+.Card__topBarRecommendations article {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+
+    .Card__homeTopBarRecommendations article,
+    .Card__topBarRecommendations article {
+        width: 100%;
+    }
+
+    .Card__homeTopBarRecommendations .CoveoSearchInterface.div__topBarRecommendations .CoveoResultLink,
+    .Card__topBarRecommendations .CoveoSearchInterface.div__topBarRecommendations .CoveoResultLink {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: block;
+    }
+}
+
+.Card__homeTopBarRecommendations header,
+.Card__topBarRecommendations header {
+    margin: 0;
+    max-width: 15em;
+    text-align: right;
+    padding: 0;
+}
+
+.Card__homeTopBarRecommendations header span,
+.Card__topBarRecommendations header span {
+    white-space: initial;
+}
+
+.CoveoSearchInterface.div__topBarRecommendations .CoveoResultList.coveo-during-initialization .coveo-placeholder-text {
+    display: none;
+}
+
+.CoveoSearchInterface.div__topBarRecommendations .CoveoResultList.coveo-during-initialization>div {
+    display: flex;
+    flex-direction: row;
+}
+
+.CoveoSearchInterface.div__topBarRecommendations .CoveoResult {
+    max-width: 350px;
+    background-color: white;
+    border-radius: var(--speedbit-border-radius-rounded-corners);
+    padding: 0;
+    margin: 0 10px;
+    max-height: 110px;
+}
+
+.CoveoSearchInterface.div__topBarRecommendations .CoveoResult .CoveoYouTubeThumbnail img {
+    object-fit: cover;
+    border-radius: 0 var(--speedbit-border-radius-rounded-corners) var(--speedbit-border-radius-rounded-corners) 0;
+}
+
+.CoveoSearchInterface.div__topBarRecommendations .coveo-result-list-container {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Video recommendations */
+.Card__productBlazeVideoRecommendation .slds-card__header,
+.demoHorizontalVideos .slds-card__header {
+    flex: auto;
+    text-align: center;
+}
+
+.CoveoSearchInterface.div__homeAuthActivityRecommendation .CoveoResult,
+.CoveoSearchInterface.div__homeAuthProductRecommendation .CoveoResult,
+.CoveoSearchInterface.div__productBlazeVideoRecommendation .CoveoResult,
+.CoveoSearchInterface.div__homeVideoRecommendation .CoveoResult {
+    border: none;
+    background: white;
+    border-radius: var(--speedbit-border-radius-rounded-corners);
+    cursor: pointer;
+    width: 250px;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* Product recommendations on home page. */
+.Card__homeAuthActivityRecommendation,
+.Card__homeAuthProductRecommendation {
+    background-color: var(--speedbit-light-blue);
+}
+
+.div__homeAuthActivityRecommendation .div__homeAuthActivityText,
+.div__homeAuthProductRecommendation .div__homeAuthProductsText {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.CoveoSearchInterface.div__homeAuthActivityRecommendation,
+.CoveoSearchInterface.div__homeAuthProductRecommendation {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.div__homeAuthActivityRecommendation .h3__homeAuthActivityTitle,
+.div__homeAuthProductRecommendation .h3__homeAuthProductsTitle {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.div__homeAuthActivityRecommendation .span__homeAuthActivityText,
+.div__homeAuthProductRecommendation .span__homeAuthProductsText {
+    font-size: 16px;
+}
+
+.div__homeAuthProductRecommendation .span__homeAuthProductsText {
+    line-height: 3em;
+}
+
+/* Community posts recommendations */
+
+.CoveoSearchInterface.div__homeCommunityRecommendation .CoveoResult {
+    border: none;
+    padding-left: 0;
+}
+
+/* Trending Queries */
+
+.div__homeTrendingQueries .trendingQueries__link {
+    color: var(--speedbit-red);
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 0.75rem;
+}
+
+.div__homeTrendingQueries .trendingQueries__row {
+    margin: 10px 5px;
+}
+
+/* ************Product Page*********** */
+
+.CoveoSearchInterface.SearchInterface__productBlazeBlogRecommendation .coveo-result-list-container,
+.CoveoSearchInterface.SearchInterface__productBlazeContentRecommendation .coveo-result-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Blog recommendations */
+
+.CoveoSearchInterface.SearchInterface__productBlazeContentRecommendation .CoveoResult,
+.CoveoSearchInterface.SearchInterface__productBlazeBlogRecommendation .CoveoResult {
+    border: none;
+    background: white;
+    border-radius: var(--speedbit-border-radius-rounded-corners);
+    cursor: pointer;
+    width: 90%;
+}
+
+.CoveoSearchInterface.SearchInterface__productBlazeBlogRecommendation .CoveoTab>p {
+    font-size: 16px;
+    font-weight: 700;
+    color: #7a7a7a;
+}
+
+.CoveoSearchInterface.SearchInterface__productBlazeBlogRecommendation .CoveoTab.coveo-selected>p,
+.CoveoSearchInterface.SearchInterface__productBlazeBlogRecommendation .CoveoTab.coveo-selected:hover>p {
+    border: none;
+    color: var(--speedbit-red);
+    font-weight: 900;
+}
+
+button.Button__SeeMore {
+    border: 2px solid #2b338b;
+    padding: 0.5rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background-color: white;
+    color: #2b338b;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+}

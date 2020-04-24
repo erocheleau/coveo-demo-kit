@@ -1,0 +1,6 @@
+<design:component label="Demo Case Deflection">
+    <design:attribute name="title" label="Title" />
+    <design:attribute name="name" label="Name" />
+    <design:attribute name="searchHub" label="Search Hub" />
+    <design:attribute name="debug" label="Debug" />
+</design:component>
