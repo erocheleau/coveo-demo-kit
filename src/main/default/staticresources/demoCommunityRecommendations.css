@@ -3,7 +3,7 @@
     --speedbit-grey: #e0e1ee;
     --speedbit-dark-blue: #2b338b;
     --speedbit-light-blue: #dff6ff;
-    --speedbit-border-radius-rounded-corners: 18px;
+    --card-border-radius-rounded-corners: 18px;
 }
 
 .Card__Recommendation--transparent {
@@ -97,7 +97,7 @@
 .CoveoSearchInterface.div__topBarRecommendations .CoveoResult {
     max-width: 350px;
     background-color: white;
-    border-radius: var(--speedbit-border-radius-rounded-corners);
+    border-radius: var(--card-border-radius-rounded-corners);
     padding: 0;
     margin: 0 10px;
     max-height: 110px;
@@ -105,7 +105,7 @@
 
 .CoveoSearchInterface.div__topBarRecommendations .CoveoResult .CoveoYouTubeThumbnail img {
     object-fit: cover;
-    border-radius: 0 var(--speedbit-border-radius-rounded-corners) var(--speedbit-border-radius-rounded-corners) 0;
+    border-radius: 0 var(--card-border-radius-rounded-corners) var(--card-border-radius-rounded-corners) 0;
 }
 
 .CoveoSearchInterface.div__topBarRecommendations .coveo-result-list-container {
@@ -126,7 +126,7 @@
 .CoveoSearchInterface.div__horizontalVideos .CoveoResult {
     border: none;
     background: white;
-    border-radius: var(--speedbit-border-radius-rounded-corners);
+    border-radius: var(--card-border-radius-rounded-corners);
     cursor: pointer;
     width: 250px;
     box-shadow: none;
@@ -191,18 +191,18 @@
 /* ************Product Page*********** */
 
 .CoveoSearchInterface.SearchInterface__productBlazeBlogRecommendation .coveo-result-list-container,
-.CoveoSearchInterface.SearchInterface__productBlazeContentRecommendation .coveo-result-list-container {
+.CoveoSearchInterface.Card__verticalImageContent .coveo-result-list-container {
     display: flex;
     flex-direction: column;
 }
 
 /* Blog recommendations */
 
-.CoveoSearchInterface.SearchInterface__productBlazeContentRecommendation .CoveoResult,
+.CoveoSearchInterface.Card__verticalImageContent .CoveoResult,
 .CoveoSearchInterface.SearchInterface__productBlazeBlogRecommendation .CoveoResult {
     border: none;
     background: white;
-    border-radius: var(--speedbit-border-radius-rounded-corners);
+    border-radius: var(--card-border-radius-rounded-corners);
     cursor: pointer;
     width: 90%;
 }

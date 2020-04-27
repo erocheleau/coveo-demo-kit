@@ -11,6 +11,9 @@
 .THIS .CoveoResult a.CoveoResultLink{
     color: token(colorTextLink);
 }
+.THIS .CoveoQuickview {
+    color: token(colorTextBrand);
+}
 
 /* BORDERS */
 .THIS .coveo-list-layout.CoveoResult {
