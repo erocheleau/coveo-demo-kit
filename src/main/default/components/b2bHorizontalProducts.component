@@ -1,0 +1,27 @@
+<apex:component>
+    <div id="b2bHorizontalProducts"
+         class="CoveoSearchInterface Card__b2bHorizontalProducts"
+         data-design="new"
+         data-results-per-page="3"
+         data-excerpt-length="100"
+         data-enable-history="false">
+        <div class="CoveoAnalytics"></div>
+        <div class="coveo-recommendation-body">
+            <div class="CoveoResultList coveo-flex-row"
+                 style="background-color:transparent;"
+                 data-layout="list">
+
+                <script id='product'
+                        class='result-template'
+                        type='text/html'>
+                    <div class="coveo-result-frame coveo-result__flex-column coveo-result__flex-column--centered" style="padding: 16px;">
+                        <div class="CoveoProductMedia" data-media-type="Product Image Thumbnail" data-width="auto" data-height="150px" style="text-align:center;"></div>
+                        <a class="CoveoResultLink coveo-recommendations__result-link" data-href-template="{raw.sfccrzskuc}"></a>
+                        <span class="CoveoFieldValue" data-field="@sfccrzskuc"></span>
+                    </div>
+                </script>
+
+            </div>
+        </div>
+    </div>
+</apex:component>

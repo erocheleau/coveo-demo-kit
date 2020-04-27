@@ -43,3 +43,8 @@
     color: token(colorTextButtonBrand);
     border-color: token(colorBackgroundButtonBrandHover);
 }
+
+/* BACKGROUNDS */
+.THIS .coveo-recommendation-body {
+    background-color: transparent;
+}

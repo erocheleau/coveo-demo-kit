@@ -188,6 +188,35 @@
     margin: 10px 5px;
 }
 
+/* B2B Products recommendations */
+.CoveoResultList .CoveoResult .CoveoProductMedia img {
+    max-width: none;
+    max-height: none;
+}
+.CoveoResultList.coveo-flex-row .coveo-result-list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.coveo-result-frame.coveo-result__flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.coveo-result__flex-column.coveo-result__flex-column--centered {
+    align-items: center;
+}
+.CoveoSearchInterface.Card__b2bHorizontalProducts .CoveoResult  {
+    border: none;
+    background: white;
+    border-radius: var(--card-border-radius-rounded-corners);
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.coveo-result-frame.coveo-result__flex-column.coveo-result__flex-column--centered > * {
+    margin: 6px 0;
+}
+
 /* ************Product Page*********** */
 
 .CoveoSearchInterface.SearchInterface__productBlazeBlogRecommendation .coveo-result-list-container,
@@ -197,7 +226,7 @@
 }
 
 /* Blog recommendations */
-
+.CoveoSearchInterface.Card__b2bHorizontalProducts .CoveoResult,
 .CoveoSearchInterface.Card__verticalImageContent .CoveoResult,
 .CoveoSearchInterface.SearchInterface__productBlazeBlogRecommendation .CoveoResult {
     border: none;
