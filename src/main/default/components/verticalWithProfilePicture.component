@@ -1,31 +1,31 @@
 <apex:component>
-    <div id="demoRecommendations"
-         class="CoveoSearchInterface"
-         data-design="new"
-         data-results-per-page="3"
-         data-excerpt-length="200"
-         data-enable-history="false" >
+    <div id="verticalWithProfilePicture"
+        class="CoveoSearchInterface Card__verticalWithProfilePicture"
+        data-design="new"
+        data-results-per-page="5"
+        data-excerpt-length="200"
+        data-enable-history="false">
         <div class="CoveoAnalytics"></div>
         <div class="coveo-main-section">
             <div class="coveo-results-column">
                 <div class="CoveoResultList"
-                     data-auto-select-fields-to-include="true"
-                     data-layout="list">
+                    data-auto-select-fields-to-include="true"
+                    data-layout="list">
 
                     <script id="list-default"
-                            class="result-template"
-                            type="text/html"
-                            data-layout="list">
+                        class="result-template"
+                        type="text/html"
+                        data-layout="list">
                         <div class="coveo-result-frame">
                             <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:20px;">
                                 <div class="CoveoSalesforceQuickview" style="width:60px;">
-                                    <span class="CoveoFieldValue" data-field="@sfauthorimageurlc" data-helper="image" data-helper-options-width="60px;" data-html-value="true"></span>
+                                    <span class="CoveoFieldValue" data-field="@image" data-helper="image" data-helper-options-width="60px;" data-helper-options-height="60px;" data-html-value="true"></span>
                                 </div>
                             </div>
                             <div class="coveo-result-cell" style="padding-left:20px;">
                                 <div class="coveo-result-row">
                                     <div class="CoveoSalesforceQuickview">
-                                        <a class="CoveoResultLink" data-open-quickview="true" style="color:#ee4454;font-size:18px;"></a>
+                                        <a class="CoveoResultLink" data-open-quickview="true" style="font-size:18px;"></a>
                                     </div>
                                 </div>
                                 <div class="coveo-result-row">
@@ -39,10 +39,10 @@
             </div>
         </div>
         <div class="Div__ContainerSeeMore"
-             style="padding-left:15px; margin-bottom: 30px;">
+            style="padding-left:15px; margin-bottom: 30px;">
             <button class="Button__SeeMore"
-                    type="button"
-                    style="
+                type="button"
+                style="
                     padding: 0.5rem 2rem;
                     margin: 0;
                     text-decoration: none;

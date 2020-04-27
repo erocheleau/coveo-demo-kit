@@ -170,7 +170,7 @@
 
 /* Community posts recommendations */
 
-.CoveoSearchInterface.div__homeCommunityRecommendation .CoveoResult {
+.CoveoSearchInterface.Card__verticalWithProfilePicture .CoveoResult {
     border: none;
     padding-left: 0;
 }
