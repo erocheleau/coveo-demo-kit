@@ -15,6 +15,11 @@
                     type="Boolean"
                     default="false"
                     access="global" />
+                    
+    <!-- Wrapper for LWC pubsub. -->
+    <c:auraPubsub aura:id="pubsub" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.searchInitialized}" />
 
     <CoveoV2:CommunitySearch name="{!v.name}"
                              searchHub="{!v.searchHub}"

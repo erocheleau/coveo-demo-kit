@@ -27,10 +27,10 @@
                     access="global" />
 
     <!-- Handler for navigation event. -->
-    <!-- <aura:handler event="forceCommunity:routeChange" action="{!c.handleRouteChange}" /> -->
+    <aura:handler event="forceCommunity:routeChange" action="{!c.handleRouteChange}" />
 
     <!-- Wrapper for LWC pubsub. -->
-    <!-- <c:auraPubsub aura:id="pubsub" /> -->
+    <c:auraPubsub aura:id="pubsub" />
 
     <!-- CoveoV2 Community searchbox. -->
     <div class="{! v.roundedCorners? 'rounded-corners': ''}">

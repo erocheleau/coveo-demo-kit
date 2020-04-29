@@ -16,7 +16,7 @@
                         type='text/html'>
                     <div class="coveo-result-frame coveo-result__flex-column coveo-result__flex-column--centered" style="padding: 16px;">
                         <div class="CoveoProductMedia" data-media-type="Product Image Thumbnail" data-width="auto" data-height="150px" style="text-align:center;"></div>
-                        <a class="CoveoResultLink coveo-recommendations__result-link" data-href-template="{raw.sfccrzskuc}"></a>
+                        <a class="CoveoResultLink coveo-recommendations__result-link" data-href-template="{raw.sfccrzskuc}" style="font-size:20px;max-width:300px;text-align:center;min-height:3em;"></a>
                         <span class="CoveoFieldValue" data-field="@sfccrzskuc"></span>
                     </div>
                 </script>

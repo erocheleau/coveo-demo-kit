@@ -1,11 +1,25 @@
 {
-  "packageDirectories": [
-    {
-      "path": "src",
-      "default": true
+    "packageDirectories": [
+        {
+            "path": "src",
+            "default": true,
+            "package": "Coveo Demo Kit",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "dependencies": [
+                {
+                    "package": "CoveoV2@3.46"
+                }
+            ]
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "48.0",
+    "packageAliases": {
+        "Coveo Demo Kit": "0Ho3s000000006JCAQ",
+        "CoveoV2@3.46": "04t1P00000027e2",
+        "CoveoV2_PackageId": "0331a0000005EzV",
+        "Coveo Demo Kit@0.1.0-1": "04t3s000002sz1fAAA"
     }
-  ],
-  "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "48.0"
 }
