@@ -4,7 +4,8 @@
          data-design="new"
          data-results-per-page="3"
          data-excerpt-length="100"
-         data-enable-history="false">
+         data-enable-history="false"
+         data-expression='@objecttype=="ccrz__E_Product__c"'>
         <div class="CoveoAnalytics"></div>
         <div class="coveo-recommendation-body">
             <div class="CoveoResultList coveo-flex-row"

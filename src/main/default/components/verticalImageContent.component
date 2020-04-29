@@ -1,6 +1,6 @@
-<apex:component >
+<apex:component>
     <div id="verticalImageContent" class="CoveoSearchInterface Card__verticalImageContent" data-design="new" data-results-per-page="3"
-        data-excerpt-length="100" data-enable-history="false">
+        data-excerpt-length="100" data-enable-history="false" data-expression="@image">
         <div class="CoveoAnalytics"></div>
         <div class="coveo-main-section">
             <div class="coveo-results-column">
@@ -12,13 +12,13 @@
                             </div>
                             <div class="coveo-result-row" style="padding: 0 1.5rem;margin-top: 1.5rem;">
                                 <div class="coveo-result-cell" style="text-align:left">
-                                    <a class="CoveoResultLink" style="font-size:20px;"></a> 
+                                    <a class="CoveoResultLink" style="font-size:20px;"></a>
                                 </div>
                             </div>
                             <div class="coveo-result-row" style="padding: 0 1.5rem; margin: 1.5rem 0;">
                                 <div class="coveo-result-cell" style="text-align:left">
                                     <div class="CoveoSalesforceQuickview">
-                                        <span style="font-size:16px;font-weight:bold;">Read More</span> 
+                                        <span style="font-size:16px;font-weight:bold;">Read More</span>
                                     </div>
                                 </div>
                             </div>

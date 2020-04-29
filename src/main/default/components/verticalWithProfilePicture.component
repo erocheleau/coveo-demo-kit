@@ -4,7 +4,8 @@
         data-design="new"
         data-results-per-page="5"
         data-excerpt-length="200"
-        data-enable-history="false">
+        data-enable-history="false"
+        data-expression="@image">
         <div class="CoveoAnalytics"></div>
         <div class="coveo-main-section">
             <div class="coveo-results-column">
