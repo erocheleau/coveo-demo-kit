@@ -26,7 +26,7 @@
                                     </div>
                                 </div>
                                 <div class="coveo-result-cell" style="padding-left:10px;vertical-align:top;">
-                                    <span class="CoveoFieldValue" data-field="@objecttypename" style="text-transform: uppercase;vertical-align: baseline;font-size:16px;"></span>
+                                    <span class="CoveoFieldValue" data-field="@sourcetype" style="text-transform: uppercase;vertical-align: baseline;font-size:16px;"></span>
                                 </div>
                             </div>
                             <div class="coveo-result-row">
