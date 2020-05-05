@@ -5,5 +5,5 @@
     <design:attribute name="searchHub" label="Search Hub" />
     <design:attribute name="recommendationsContext" label="Recommendations Interface" />
     <design:attribute name="debug" label="Debug" />
-    <design:attribute name="outerClass" label="Style class of outer containter" />
+    <design:attribute name="outerClass" label="Style class of outer container" />
 </design:component>

@@ -3,7 +3,7 @@
     <!-- PASSTHROUGH ATTRIBUTES TO COVEOV2 -->
     <aura:attribute name="name"
                     type="String"
-                    default="demoCommunitySearch"
+                    default="demoDynamicSearch"
                     access="global" />
 
     <aura:attribute name="searchHub"
