@@ -1,4 +1,4 @@
-<aura:component implements='forceCommunity:availableForAllPageTypes'>
+<aura:component implements='forceCommunity:availableForAllPageTypes' access="global">
 
     <!-- PASSTHROUGH ATTRIBUTES TO COVEOV2 -->
     <aura:attribute name="title"

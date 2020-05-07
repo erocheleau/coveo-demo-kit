@@ -1,7 +1,7 @@
-public with sharing class CommunityUserProfilingInfos {
+global with sharing class CommunityUserProfilingInfos {
 
     @AuraEnabled(cacheable=true)
-    public static string getUserProfilingInfos(){
+    global static string getUserProfilingInfos(){
         // User u = [select Id, email from User where Id = :UserInfo.getUserId()];
         // Contact c = [select Id, Email, ProductsOwned__c, RegistrationDate__c, Interests__c FROM Contact WHERE Email = :u.email LIMIT 1];
 

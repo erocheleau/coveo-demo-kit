@@ -3,9 +3,9 @@
         {
             "path": "src",
             "default": true,
-            "package": "Coveo Demo Kit",
+            "package": "0Ho3s000000006OCAQ",
             "versionName": "ver 0.3",
-            "versionNumber": "0.3.1.NEXT",
+            "versionNumber": "0.3.2.NEXT",
             "dependencies": [
                 {
                     "package": "CoveoV2@3.46"
@@ -19,6 +19,8 @@
     "packageAliases": {
         "Coveo Demo Kit": "0Ho3s000000006OCAQ",
         "CoveoV2@3.46": "04t1P00000027e2",
-        "CoveoV2_PackageId": "0331a0000005EzV"
+        "CoveoV2_PackageId": "0331a0000005EzV",
+        "Coveo Demo Kit@0.3.1-2": "04t3s000002sz88AAA",
+        "Coveo Demo Kit@0.3.2-1": "04t3s000002sz8IAAQ"
     }
 }

@@ -1,4 +1,4 @@
-<aura:component implements="forceCommunity:searchInterface">
+<aura:component implements="forceCommunity:searchInterface" access="global">
 
     <!-- PASSTHROUGH ATTRIBUTES TO COVEOV2 -->
     <aura:attribute name="name"
